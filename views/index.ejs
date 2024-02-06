@@ -8,6 +8,7 @@
 		/>
 		<title>WormHole</title>
 		<script src="https://cdn.tailwindcss.com"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 	</head>
 	<body
 		style="
@@ -71,14 +72,28 @@
                 <% if (locals.fileLink !=null) { %>
                     <div class="text-white">
                         Your file is uploaded<br>
+						<p><%= locals.fileName %></p>
 
                         <a href="<%= locals.fileLink %>">
-                            <img src="http://api.qrserver.com/v1/create-qr-code/?data=<%= locals.fileLink %>&size=320x320" alt="link">
+                            <img src="http://api.qrserver.com/v1/create-qr-code/?data=<%= locals.fileLink %>&size=160x160" alt="link">
                         </a>
                     </div>
+					<div class=" p-2">
+						<a href="<%= locals.fileLink %>/del">
+							<button id="del-btn" class="bg-red-500 text-white p-2 rounded">Delete</button>
+						</a>
+					</div>
                 <% } %>
+
 
 			</div>
 		</div>
+		<script>
+			$(document).ready(function(){
+				$('#del-btn').click(function(event){
+
+				})
+			});
+		</script>
 	</body>
 </html>
